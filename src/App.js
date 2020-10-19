@@ -43,4 +43,18 @@ class App extends Component {
     );
     this.setState({ users: filtered });
   };
+
+  render() {
+    return (
+      <div>
+        <Jumbotron />
+        <Search
+          handleInputChange={this.handleInputChange}
+          handleSearchSubmit={this.handleSearchSubmit}
+        />
+        <Table user={this.state.users} />
+        <Footer />
+      </div>
+    );
+  }
 }
