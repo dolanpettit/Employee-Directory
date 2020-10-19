@@ -24,4 +24,23 @@ class App extends Component {
     this.setState({ search: event.target.value });
     console.log("search", event.target.value);
   };
+
+  handleSearchSubmit = (event) => {
+    event.preventDefault();
+
+    const filtered = this.state.users.filter(
+      (item) =>
+        item.name.first
+          .toLowerCase()
+          .includes(this.state.search.toLowerCase()) ||
+        item.name.last
+          .toLowerCase()
+          .includes(this.state.search.toLowerCase()) ||
+        item.email.toLowerCase().includes(this.state.search.toLowerCase()) ||
+        item.location.country
+          .toLowerCase()
+          .includes(this.state.search.toLowerCase())
+    );
+    this.setState({ users: filtered });
+  };
 }
