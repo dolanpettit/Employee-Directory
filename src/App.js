@@ -20,5 +20,8 @@ class App extends Component {
     );
   }
 
-  
+  handleInputChange = (event) => {
+    this.setState({ search: event.target.value });
+    console.log("search", event.target.value);
+  };
 }
